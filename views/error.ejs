@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container my-5">
+    <h1 class="green-text" style="font-size: 75px;">
+        <% if (locals.code) { %>
+            <%= code %>
+        <% } %>
+    </h1>
+    
+    <h1 class="white-text">
+        <code>
+            <% if (locals.error) { %>
+                <%= error %>
+            <% } %>
+        </code>
+    </h1>
+</div>
+
+
+<%- include("partials/footer.ejs") %>

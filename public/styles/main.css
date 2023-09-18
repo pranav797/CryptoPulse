@@ -1,0 +1,60 @@
+.main-background {
+    text-align: center;
+    background-image: url("../images/triangle-1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #1E5128;
+}
+
+.green-text {
+    color: rgb(5, 250, 42);
+    font-size: 4rem;
+}
+
+.white-text {
+    color: #D8E9A8;
+}
+
+.bitcoin-bg {
+    background-color: #4E9F3D;
+}
+
+.additional-info {
+    background-color: #D8E9A8;
+}
+
+.day-market-volume {
+    border: 5px solid;
+    border-color: rgb(42, 184, 45);
+    border-radius: 25px;
+
+    background-color: #a2fa90;
+
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    width: 50%;
+}
+
+.ticker-head {
+    padding: 10%;
+    color: #D8E9A8;
+}
+
+.ticker-widget {
+    margin-top: 5%; 
+    font-size: 1.5rem;
+}
+
+.ticker-inner-bg {
+    background-color: #a2fa90;
+}
+
+.ticker-inner-bg-2 {
+    background-color: #69f84c;
+}

@@ -1,0 +1,129 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container my-5">
+    <div class="text-center rounded-3">
+        <svg xmlns="http://www.w3.org/2000/svg" style="color: var(--bs-indigo);" width="100" height="100" fill="white" class="bi bi-coin mt-4 mb-3" viewBox="0 0 16 16">
+            <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"/>
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+          </svg>
+        <h1 class="green-text">
+            <% if (locals.totalMarketCap) { %>
+                <%= totalMarketCap %>
+            <% } %>
+            <code>usd</code>
+        </h1>
+        <p class="col-lg-8 mx-auto fs-5 white-text">
+        Global Crypto Market Capitalization
+        </p>
+        <br>
+        <br>
+        <h4 class="green-text">
+            <% if (locals.totalNumCurrencies) { %>
+                <%= totalNumCurrencies %>
+            <% } %>
+        </h4>
+        <p class="col-lg-8 mx-auto fs-5 white-text">
+            Total Cryptocurrencies
+        </p>
+        <div class="d-inline-flex gap-2 mb-5">
+        </div>
+    </div>
+</div>
+<div class="row align-items-md-stretch">
+    
+    <div class="col-md-6">
+        <div class="h-100 p-5 bitcoin-bg rounded-3">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Bitcoin Market Dominance</h1>
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="250" fill="orange" class="d-block bi bi-currency-bitcoin mx-lg-auto" viewBox="0 0 16 16">
+                        <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25L5.5 13zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28V4.487zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927V8.539z"/>
+                    </svg>
+                  <!-- <img src="/../public/images/bitcoin.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy"> -->
+                </div>
+                <div class="col-lg-6">
+                  <h1 class=" fw-bold text-body-emphasis lh-1 mb-3" style="font-size: 7rem; padding-top: 10%;">
+                    <% if (locals.bitcoinDominancePercentage) { %>
+                        <%= bitcoinDominancePercentage %>
+                    <% } %>
+                  </h1>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 border rounded-3" style="background-color: #D8E9A8;">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Additional Market Info</h2>
+                <!-- <ul class="lead col-10">
+                    <li>Total 24h Market Volume: volume value</li>
+                    <li>Market Cap ATH: value and date</li>
+                    <li>24h Market ATH Volume: value and date</li>
+                    <li>Change in Market Cap: value</li>
+                    <li>Change in 24h Market Volume: value</li>
+                </ul> -->
+                <!-- <div class="row mb-3 text-center lead"> -->
+                    <div class="row mb-3 text-center lead themed-grid-col">
+                      <div class="d-flex pb-3 justify-content-center" >
+                        <div class="day-market-volume">
+                            <b>Total 24h Market Volume:</b> <br>
+                            <b>
+                                <% if (locals.volumeDay) { %>
+                                    <%= volumeDay %>
+                                <% } %> <code>usd</code>
+                            </b>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 themed-grid-col" >
+                            Market Cap ATH: <br>
+                            <div>
+                                <b>
+                                    <% if (locals.ATHMarketCap) { %>
+                                        <%= ATHMarketCap %>
+                                    <% } %><code>usd</code>
+                                </b>
+                            </div>
+                            <br>
+                            <br>
+                            Change in 24h Market Cap: <br>
+                            <div>
+                                <b>
+                                    <% if (locals.marketCapChangeDay) { %>
+                                        <%= marketCapChangeDay %>
+                                    <% } %> 
+                                </b>
+                            </div>
+                        </div>
+                        <div class="col-md-6 themed-grid-col" >
+                            24h Market ATH Volume: <br>
+                            <div>
+                                <b>
+                                    <% if (locals.marketVolumeATHDay) { %>
+                                        <%= marketVolumeATHDay %>
+                                    <% } %><code>usd</code>
+                                </b>
+                            </div>
+                            <br>
+                            <br>
+                            Change in 24h Market Volume: <br>
+                            <div>
+                                <b>
+                                    <% if (locals.marketVolumeChangeDay) { %>
+                                        <%= marketVolumeChangeDay %>
+                                    <% } %>
+                                </b>
+                            </div>
+                        </div>
+                      </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("partials/footer.ejs") %>

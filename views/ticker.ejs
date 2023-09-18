@@ -1,0 +1,127 @@
+<%- include("partials/header.ejs") %>
+
+<% if (locals.nameCoin) { %>
+    <div>
+        <h3 class="d-flex justify-content-center" style="padding: 3%; color: #D8E9A8;">
+            Enter the id of the currency to get its market information:
+        </h3>
+        <label action="/ticker-submit" method="POST" class="d-flex justify-content-center" style="font-size: 1.3rem;">
+            <form action="/ticker-submit" method="POST">
+                <input type="text" id="idInput" name="coin-id" placeholder="eg. btc-bitcoin">
+                <input id="tickers" type="submit" value="GET" formaction="/ticker-submit" >
+            </form>
+        </label>
+    </div>
+    <div class="p-5 text-center">
+        <div class="container py-5">
+            <h1 class="white-text">
+                <% if (locals.nameCoin && locals.symbolCoin) { %>
+                    <%= nameCoin %> : <%= symbolCoin %>
+                <% } %>
+            </h1>
+            <div>
+                <h1 class="green-text" style="font-size: 75px;">
+                    <% if (locals.coinPrice) { %>
+                        <%= coinPrice %>
+                    <% } %> <code>usd</code> 
+                </h1>
+                <% if (locals.changeSevenDay) { %>
+                    <% if (changeSevenDay < 1) { %>
+                        <h1 style="font-size: 50px; color: red;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                            </svg> <%= changeSevenDay %>
+                        </h1>
+                    <% } else { %>
+                        <h1 style="font-size: 50px; color: #06c02b;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                            </svg> <%= changeSevenDay %>
+                        </h1>
+                    <% } %>
+                <% } %>
+            </div>
+                
+            <h1 class="col-lg-8 mx-auto white-text">
+                <% if (locals.coinRank) { %>
+                    Rank: <%= coinRank %>
+                <% } %>
+            </h1>
+            <div class="row mb-3 text-center ticker-widget" style="margin-top: 10%;">
+                <div class="col-3 themed-grid-col p-3"></div>
+                <div class="col-2 themed-grid-col p-3 ticker-inner-bg" style="border-radius: 25px 0px 0px 0px"><b>Market Cap</b></div>
+                <div class="col-1 themed-grid-col p-3 ticker-inner-bg"></div>
+                <div class="col-3 themed-grid-col p-3 ticker-inner-bg" style=" border-radius: 0px 25px 0px 0px">
+                    <% if (locals.MKTCap) { %>
+                        <%= MKTCap %>
+                    <% } %> <code>usd</code>
+                </div>
+                <div class="col-3 themed-grid-col p-3"></div>
+    
+                <div class="col-3 themed-grid-col p-3"></div>
+                <div class="col-2 themed-grid-col p-3 ticker-inner-bg" style="border-radius: 0px 0px 0px 25px"><b>24h Volume</b></div>
+                <div class="col-1 themed-grid-col p-3 ticker-inner-bg"></div>
+                <div class="col-3 themed-grid-col p-3 ticker-inner-bg" style="border-radius: 0px 0px 25px 0px">
+                    <% if (locals.dayVolumeCoin) { %>
+                        <%= dayVolumeCoin %>
+                    <% } %> <code>usd</code>
+                </div>
+                <div class="col-3 themed-grid-col p-3"></div>
+            </div>
+            <div style="height: 20px;">
+
+            </div>
+            <div class="row mb-3 text-center ticker-widget">
+                <div class="col-3 themed-grid-col p-3"></div>
+                <div class="col-2 themed-grid-col p-3 ticker-inner-bg-2" style="border-radius: 25px 0px 0px 0px"><b>Circulation</b></div>
+                <div class="col-1 themed-grid-col p-3 ticker-inner-bg-2"></div>
+                <div class="col-3 themed-grid-col p-3 ticker-inner-bg-2" style="border-radius: 0px 25px 0px 0px">
+                    <% if (locals.supplyCirculating) { %>
+                        <%= supplyCirculating %>
+                    <% } %> <code>usd</code>
+                </div>
+                <div class="col-3 themed-grid-col p-3"></div>
+    
+                <div class="col-3 themed-grid-col p-3"></div>
+                <div class="col-2 themed-grid-col p-3 ticker-inner-bg-2"><b>Total Supply</b></div>
+                <div class="col-1 themed-grid-col p-3 ticker-inner-bg-2"></div>
+                <div class="col-3 themed-grid-col p-3 ticker-inner-bg-2">
+                    <% if (locals.supplyTotal) { %>
+                        <%= supplyTotal %>
+                    <% } %> <code>usd</code>
+                </div>
+                <div class="col-3 themed-grid-col p-3"></div>
+                
+                <div class="col-3 themed-grid-col p-3"></div>
+                <div class="col-2 themed-grid-col p-3 ticker-inner-bg-2" style="border-radius: 0px 0px 0px 25px"><b>Max Supply</b></div>
+                <div class="col-1 themed-grid-col p-3 ticker-inner-bg-2"></div>
+                <div class="col-3 themed-grid-col p-3 ticker-inner-bg-2" style="border-radius: 0px 0px 25px 0px">
+                    <% if (locals.supplyMax) { %>
+                        <%= supplyMax %>
+                    <% } %> <code>usd</code>
+                </div>
+                <div class="col-3 themed-grid-col p-3"></div>
+            </div>
+        </div>
+    </div>
+<% } else { %>
+    <div>
+        <h1 class="d-flex justify-content-center ticker-head">Enter the id of the currency to get its market information:</h1>
+        <label action="/ticker-submit" method="POST" class="d-flex justify-content-center" style="font-size: 2rem;">
+            <form action="/ticker-submit" method="POST">
+                <input type="text" id="idInput" name="coin-id" placeholder="eg. btc-bitcoin">
+                <input id="tickers" type="submit" value="GET" formaction="/ticker-submit" >
+            </form>
+        </label>
+    </div>
+<% } %>
+
+<p style="color: white;">
+    <% if (locals.content) { %>
+        <%= content %>
+    <% } %>
+    
+</p>
+
+
+<%- include("partials/footer.ejs") %>
